@@ -6,7 +6,6 @@ import {
   NavLink
 } from 'react-router-dom';
 
-
 // import * as LazyPage from "../01-lazyload/pages";  y al llamar a los componentes: <LazyPage.LazyPage1 />
 // import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages';
 
@@ -17,6 +16,7 @@ import { routes } from './routes';
 export const Navigation = () => {
   return (
     <Suspense fallback={<Cargando />}>
+
       <Router>
         <div className="main-layout">
           
@@ -45,11 +45,15 @@ export const Navigation = () => {
               )) 
             }
 
-            {/* <Route path="/*" element={<Navigate to={routes[0].to} replace/>} /> */}
+            <Route path="/*">
+                <h1>Ruta por defecto</h1>
+            </Route>
+            
           </Switch>
 
         </div>
       </Router>
+
     </Suspense>
   );
 }
